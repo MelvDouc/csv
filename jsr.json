@@ -3,14 +3,12 @@
   "name": "csv",
   "version": "1.0.0",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
   "publish": {
     "include": [
-      "src",
-      "package.json",
-      "README.md",
-      "tsconfig.json"
+      "dist",
+      "package.json"
     ]
   }
 }
