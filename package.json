@@ -1,0 +1,29 @@
+{
+  "name": "csv",
+  "version": "1.0.0",
+  "description": "A straightforward CSV parser.",
+  "type": "module",
+  "exports": {
+    "default": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "scripts": {
+    "test": "tsx --test 'tests/**/*.test.ts'",
+    "build": "tsup src/index.ts --outDir=dist --platform=node --format=esm --dts --treeshake",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "csv",
+    "parse",
+    "stringify"
+  ],
+  "author": "Melvin Doucet <melv.douc@gmail.com>",
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.0",
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

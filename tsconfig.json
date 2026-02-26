@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* lib */
+    "target": "ES2024",
+    "lib": [
+      "ES2024"
+    ],
+    "module": "Node20",
+    "skipLibCheck": true,
+    /* strictness */
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "noImplicitAny": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    /* path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "$/*": [
+        "./src/*"
+      ]
+    }
+  }
+}
