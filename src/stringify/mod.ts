@@ -1,5 +1,5 @@
-import { CARRIAGE_RETURN, DOUBLE_QUOTE, LINE_FEED } from "$/lexer/constants.ts";
-import type { CsvValue } from "$/types.ts";
+import { CARRIAGE_RETURN, DOUBLE_QUOTE, LINE_FEED } from "../lexer/constants.ts";
+import type { CsvValue } from "../types.ts";
 
 /**
  * Convert an array to a CSV string.

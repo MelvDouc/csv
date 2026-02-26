@@ -1,8 +1,8 @@
-import { TokenKind } from "$/lexer/constants.ts";
-import Lexer from "$/lexer/Lexer.ts";
-import ArrayResult from "$/parser/results/ArrayResult.ts";
-import DictionaryResult from "$/parser/results/DictionaryResult.ts";
-import type { ParserOptions, Token } from "$/types.ts";
+import { TokenKind } from "../lexer/constants.ts";
+import Lexer from "../lexer/Lexer.ts";
+import type { ParserOptions, Token } from "../types.ts";
+import ArrayResult from "./results/ArrayResult.ts";
+import DictionaryResult from "./results/DictionaryResult.ts";
 
 export default class Parser {
   private static getTokens(input: string): Token[] {

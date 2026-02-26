@@ -1,5 +1,5 @@
-import Parser from "$/parser/Parser.ts";
-import { stringify } from "$/stringify/mod.ts";
+import Parser from "./parser/Parser.ts";
+import { stringify } from "./stringify/mod.ts";
 import type {
   ArrayParserOptions,
   CsvArrayRow,
@@ -7,7 +7,7 @@ import type {
   CsvValue,
   DictionaryParserOptions,
   ParserOptions
-} from "$/types.ts";
+} from "./types.ts";
 
 const DEFAULT_OPTIONS = {
   type: "array"

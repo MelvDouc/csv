@@ -1,4 +1,4 @@
-import type { ArrayParserOptions, CsvArrayRow, ParseResult } from "$/types.ts";
+import type { ArrayParserOptions, CsvArrayRow, ParseResult } from "../../types.ts";
 
 export default class ArrayResult implements ParseResult<CsvArrayRow> {
   private readonly rows: CsvArrayRow[] = [];

@@ -1,4 +1,4 @@
-import type { CsvDictionaryRow, DictionaryParserOptions, ParseResult } from "$/types.ts";
+import type { CsvDictionaryRow, DictionaryParserOptions, ParseResult } from "../../types.ts";
 
 export default class DictionaryResult implements ParseResult<CsvDictionaryRow> {
   private readonly rows: CsvDictionaryRow[] = [];

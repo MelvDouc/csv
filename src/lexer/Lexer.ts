@@ -5,9 +5,9 @@ import {
   EOF,
   LINE_FEED,
   TokenKind
-} from "$/lexer/constants.ts";
-import Position from "$/lexer/Position.ts";
-import type { Token } from "$/types.ts";
+} from "./constants.ts";
+import Position from "./Position.ts";
+import type { Token } from "../types.ts";
 
 export default class Lexer {
   private readonly input: string;

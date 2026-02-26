@@ -1,5 +1,5 @@
-import type { TokenKind } from "$/lexer/constants.ts";
-import type Position from "$/lexer/Position.ts";
+import type { TokenKind } from "./lexer/constants.ts";
+import type Position from "./lexer/Position.ts";
 
 // ===== ===== ===== ===== =====
 // Tokens
