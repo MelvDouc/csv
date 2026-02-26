@@ -1,6 +1,6 @@
 {
   "$schema": "https://jsr.io/schema/config-file.v1.json",
-  "name": "csv",
+  "name": "@melvdouc/csv",
   "version": "1.0.0",
   "exports": {
     ".": "./dist/index.js"
