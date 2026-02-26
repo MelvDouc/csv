@@ -1,5 +1,5 @@
 {
-  "name": "csv",
+  "name": "@melvdouc/csv",
   "version": "1.0.0",
   "description": "A straightforward CSV parser.",
   "type": "module",
