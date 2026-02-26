@@ -1,22 +1,27 @@
 import { CARRIAGE_RETURN, DOUBLE_QUOTE, LINE_FEED } from "$/lexer/constants.ts";
-import type { CsvArrayRow, CsvDictionaryRow } from "$/types.ts";
+import type { CsvValue } from "$/types.ts";
 
-export function stringify(rows: CsvArrayRow[] | CsvDictionaryRow[]): string {
+/**
+ * Convert an array to a CSV string.
+ * @param rows An array of arrays or dictionaries.
+ * @returns a CSV string.
+ */
+export function stringify(rows: CsvValue[][] | Record<string, CsvValue>[]): string {
   if (rows.length === 0)
     return "";
 
   return Array.isArray(rows[0])
-    ? stringifyArrayRows(rows as CsvArrayRow[])
-    : stringifyDictionaryRows(rows as CsvDictionaryRow[]);
+    ? stringifyArrayRows(rows as CsvValue[][])
+    : stringifyDictionaryRows(rows as Record<string, CsvValue>[]);
 }
 
-function stringifyArrayRows(rows: CsvArrayRow[]): string {
+function stringifyArrayRows(rows: CsvValue[][]): string {
   return rows
     .map((row) => row.map(formatValue).join(","))
     .join("\n");
 }
 
-function stringifyDictionaryRows(rows: CsvDictionaryRow[]): string {
+function stringifyDictionaryRows(rows: Record<string, CsvValue>[]): string {
   const headers = Object.keys(rows[0]);
   const values = rows
     .map((row) => headers.map((header) => formatValue(row[header])).join(","))

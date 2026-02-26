@@ -49,14 +49,24 @@ export type Token =
 // CSV records
 // ===== ===== ===== ===== =====
 
+/**
+ * Any JavaScript value to that can be stringified into a CSV field value.
+ */
+export type CsvValue = string | number | bigint | boolean | null | undefined;
+
+/**
+ * A line of field values in a CSV document without a header row.
+ */
 export type CsvArrayRow = unknown[];
+
+/**
+ * A line of field values in a CSV document with a header row.
+ */
 export type CsvDictionaryRow = Record<string, unknown>;
 
-export interface CsvRowMap {
-  array: CsvArrayRow;
-  dictionary: CsvDictionaryRow;
-}
-
+/**
+ * Options to use when a CSV document doesn't have a header row.
+ */
 export type ArrayParserOptions = {
   /**
    * Treat the first row as a regular row.
@@ -73,6 +83,9 @@ export type ArrayParserOptions = {
   ignoreEmptyLines?: boolean;
 };
 
+/**
+ * Options to use when a CSV document has a header row.
+ */
 export type DictionaryParserOptions = {
   /**
    * Treat the first row as a header row.
@@ -89,6 +102,12 @@ export type DictionaryParserOptions = {
   ignoreEmptyLines?: boolean;
 };
 
+/**
+ * Options to define:
+ * - whether the first row should be treated as a header row,
+ * - how to transform each field value,
+ * - whether to ignore empty lines.
+ */
 export type ParserOptions = ArrayParserOptions | DictionaryParserOptions;
 
 export interface ParseResult<R> {

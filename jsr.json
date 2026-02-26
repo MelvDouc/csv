@@ -1,7 +1,8 @@
 {
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
   "name": "csv",
   "version": "1.0.0",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./mod/index.ts"
   }
 }
