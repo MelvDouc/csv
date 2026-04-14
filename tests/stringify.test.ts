@@ -1,8 +1,7 @@
 import CSV from "$/index.ts";
-import { equal as assertEquals } from "node:assert";
-import { test } from "node:test";
+import { assertEquals } from "@std/assert";
 
-test("stringify array rows", () => {
+Deno.test("stringify array rows", () => {
   const data = [
     [1, "name 1"],
     [2, "name\n2"]
@@ -12,7 +11,7 @@ test("stringify array rows", () => {
   assertEquals(stringified, expected);
 });
 
-test("stringify dictionary rows", () => {
+Deno.test("stringify dictionary rows", () => {
   const data = [
     { id: 1, name: "name 1" },
     { id: 2, name: "name \"2\"" }

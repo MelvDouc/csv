@@ -1,4 +1,4 @@
-import { CARRIAGE_RETURN, DOUBLE_QUOTE, LINE_FEED } from "$/lexer/constants.ts";
+import { CARRIAGE_RETURN, COMMA, DOUBLE_QUOTE, LINE_FEED } from "$/lexer/constants.ts";
 import type { CsvValue } from "$/types.ts";
 
 /**
@@ -17,17 +17,17 @@ export function stringify(rows: CsvValue[][] | Record<string, CsvValue>[]): stri
 
 function stringifyArrayRows(rows: CsvValue[][]): string {
   return rows
-    .map((row) => row.map(formatValue).join(","))
-    .join("\n");
+    .map((row) => row.map(formatValue).join(COMMA))
+    .join(LINE_FEED);
 }
 
 function stringifyDictionaryRows(rows: Record<string, CsvValue>[]): string {
   const headers = Object.keys(rows[0]);
   const values = rows
-    .map((row) => headers.map((header) => formatValue(row[header])).join(","))
-    .join("\n");
+    .map((row) => headers.map((header) => formatValue(row[header])).join(COMMA))
+    .join(LINE_FEED);
 
-  return headers.join(",") + "\n" + values;
+  return headers.join(COMMA) + LINE_FEED + values;
 }
 
 function formatValue(value: unknown): string {

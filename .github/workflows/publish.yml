@@ -14,19 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Use NodeJS
-        uses: actions/setup-node@v6
+      - name: Use Deno
+        uses: denoland/setup-deno@v2
         with:
-          node-version: lts/*
-
-      - name: Enable PNPM
-        run: corepack enable pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm run build
+          deno-version: v2.x
 
       - name: Publish package
-        run: pnpm dlx jsr publish
+        run: deno publish

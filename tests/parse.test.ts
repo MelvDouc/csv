@@ -1,50 +1,26 @@
 import CSV from "$/index.ts";
-import { equal as assertEquals } from "node:assert";
-import { readFile } from "node:fs/promises";
-import { describe, it } from "node:test";
+import { assertEquals } from "@std/assert";
 
-describe("The parser should recognize", async () => {
-  const testInput1 = await readFile("data/test1.csv", "utf-8");
-  const data = CSV.parse<Test1Row>(testInput1, {
+Deno.test("parser #1", () => {
+  const testInput = Deno.readTextFileSync("data/test1.csv");
+  const data = CSV.parse<{ id: string; name: string; }>(testInput, {
     type: "dictionary",
     ignoreEmptyLines: true
   });
 
-  it("empty double quotes", () => {
-    const row = data[1];
-    assertEquals(row.name, "");
-  });
-
-  it("escaped double quotes", () => {
-    const row = data[2];
-    assertEquals(row.name, ' in "quotes" ');
-  });
-
-  it("escaped line breaks", () => {
-    const row = data[3];
-    assertEquals(row.name, "two\r\nlines");
-  });
-
-  it("empty fields", () => {
-    const row = data[4];
-    assertEquals(row.id, "");
-  });
+  assertEquals(data[1].name, "");
+  assertEquals(data[2].name, ' in "quotes" ');
+  assertEquals(data[3].name, "two\r\nlines");
+  assertEquals(data[4].id, "");
 });
 
-describe("The parser should handle", async () => {
-  const testInput2 = await readFile("data/CaliforniaHousing.csv", "utf-8");
-  const data = CSV.parse(testInput2, {
+Deno.test("parser #2", () => {
+  const testInput = Deno.readTextFileSync("data/CaliforniaHousing.csv");
+  const data = CSV.parse(testInput, {
     type: "array",
     mapper: (value) => isNaN(+value) ? value : +value
   });
 
-  it("transformations", () => {
-    assertEquals(typeof data[0][0], "string");
-    assertEquals(data[data.length - 1][0], -121.24);
-  });
+  assertEquals(typeof data[0][0], "string");
+  assertEquals(data[data.length - 1][0], -121.24);
 });
-
-type Test1Row = {
-  id: string;
-  name: string;
-};
