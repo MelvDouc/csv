@@ -1,16 +1,16 @@
 {
   "$schema": "https://jsr.io/schema/config-file.v1.json",
   "name": "@melvdouc/csv",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "exports": "./dist/index.js",
   "publish": {
     "include": [
-      "src",
-      "package.json",
-      "README.md"
+      "./dist",
+      "./src",
+      "./LICENSE",
+      "./package.json",
+      "./README.md"
     ]
   }
 }

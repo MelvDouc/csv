@@ -7,12 +7,21 @@
     ],
     "module": "Node20",
     "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
     /* strictness */
     "strict": true,
     "verbatimModuleSyntax": true,
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    /* path aliases */
+    "paths": {
+      "$/*": [
+        "./src/*"
+      ]
+    }
   }
 }
