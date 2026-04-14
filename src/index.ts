@@ -32,12 +32,7 @@ function parse(input: string, options: ParserOptions = DEFAULT_OPTIONS) {
   return new Parser(input).parse(options);
 }
 
-const CSV = {
-  parse,
-  stringify
-} as const;
-
-export default CSV;
+export { parse, stringify };
 
 export type {
   ArrayParserOptions,
