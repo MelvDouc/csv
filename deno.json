@@ -1,7 +1,7 @@
 {
   "name": "@melvdouc/csv",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "imports": {
     "$/": "./src/",
     "@std/assert": "jsr:@std/assert@^1.0.19",

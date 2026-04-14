@@ -7,10 +7,10 @@ A straightforward CSV parser.
 index.ts:
 
 ```ts
-import CSV from "jsr:@melvdouc/csv";
+import { parse } from "jsr:@melvdouc/csv";
 
 const input = `id,name\n1,John Doe`;
-const data = CSV.parse<Data>(input, {
+const data = parse<Data>(input, {
   type: "dictionary",
   mapper: (value, field) => {
     return field === "id" ? +value : value;
@@ -29,11 +29,11 @@ type Data = {
 index.ts:
 
 ```ts
-import CSV from "jsr:@melvdouc/csv";
+import { stringify } from "jsr:@melvdouc/csv";
 
 const data = [
   { id: 1, name: "John Doe" }
 ];
 
-const output = CSV.stringify(data); // id,name\n1,John Doe
+const output = stringify(data); // id,name\n1,John Doe
 ```
